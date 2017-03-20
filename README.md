@@ -1,2 +1,2 @@
 # DES
-DES algorithm implementation in C 
+DES algorithm implementation in C++
