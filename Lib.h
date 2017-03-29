@@ -86,11 +86,16 @@ class Lib
         return binary_to_string(hex_to_binary(s));
     }
     
-    static vector <int> number_to_binary(int n)
+    static string string_to_hex(string s)
+    {
+        return binary_to_hex(string_to_binary(s));
+    }
+    
+    static vector <int> long_to_binary(long long n,int length)
     {
         vector <int> v;
-        for(int k=3;k>=0;k--)
-        v.push_back((n&(1<<k))!=0);
+        for(int k=length-1;k>=0;k--)
+        v.push_back((n&(1LL<<k))!=0);
         
         return v;
     }
@@ -98,8 +103,12 @@ class Lib
     static void pad_zeros(vector<int> &v)
     {
         int n = v.size();
-        int m = ((n+63)/64-1)*64 + n%64;
-        int length = ((n+63)/64)*64;
+        int m = 0;
+        int length = 0;
+        if(n%64){
+            m = ((n+63)/64-1)*64 + n%64;
+            length = ((n+63)/64)*64;
+        }
         
         for(int i=m;i<length;i++)
         v.push_back(0);

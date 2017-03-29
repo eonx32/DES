@@ -254,7 +254,7 @@ class DES{
             for(int j=0;j<4;j++)
             y = (y<<1)+E[i+j+1];
             
-            vector <int> v = Lib::number_to_binary(S[(i+1)/6][x][y]);
+            vector <int> v = Lib::long_to_binary(S[(i+1)/6][x][y],4);
             F.insert(F.end(),v.begin(),v.end());
         }
         
